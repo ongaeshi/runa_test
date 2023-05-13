@@ -1,0 +1,25 @@
+GIT
+  remote: https://github.com/ongaeshi/ruremai.git
+  revision: a7c249c92623598ce423bc049ac6a70a6ea4c7c1
+  branch: feature/support-ruby3
+  specs:
+    ruremai (0.0.5)
+      launchy (~> 2.4)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.4)
+      public_suffix (>= 2.0.2, < 6.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    public_suffix (5.0.1)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  ruremai!
+
+BUNDLED WITH
+   2.4.10
