@@ -14,12 +14,14 @@ GEM
     launchy (2.5.2)
       addressable (~> 2.8)
     public_suffix (5.0.1)
+    thor (1.2.2)
 
 PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
   ruremai!
+  thor
 
 BUNDLED WITH
    2.4.10

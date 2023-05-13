@@ -1,0 +1,16 @@
+require "thor"
+
+class Runa < Thor
+  desc "run [ARGS]", "Run script"
+  def run_command(*args)
+    system("bundle exec ruby -Ilib main.rb #{args.join(" ")}")
+  end
+  map "run" => "run_command"
+
+  desc "install", "Install gems"
+  def install
+    system("bundle install")
+  end
+end
+
+Runa.start(ARGV)
