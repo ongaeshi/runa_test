@@ -22,8 +22,8 @@ class Runa < Thor
       File.write("lib/#{name}.rb", "require \"#{name}/lib\"\n")
       File.write("lib/#{name}/lib.rb", "module #{module_name}\nend\n")
       File.write(".gitignore", "/vendor\n")
-      # Gemfile
-      # main.rb
+      File.write("Gemfile", "# frozen_string_literal: true\n\nsource \"https://rubygems.org\"\n\n# gem \"rails\"\n")
+      File.write("main.rb", "require \"#{name}\"\n\n# Write your app")
     end
   end
 
