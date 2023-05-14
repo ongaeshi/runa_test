@@ -12,13 +12,19 @@ class Runa < Thor
       raise Thor::Error, "ERROR: '#{File.absolute_path(name)}' already exists"
     end
 
+    module_name = name.split("_").map { |e| e.capitalize }.join
+
     FileUtils.mkdir_p(name)
-    # .bundle/config
-    # lib/name.rb
-    # lib/name/lib.rb
-    # .gitignore
-    # Gemfile
-    # main.rb
+    Dir.chdir(name) do
+      FileUtils.mkdir_p(".bundle")
+      File.write(".bundle/config", "---\nBUNDLE_PATH: \"vendor/bundle\"\n")
+      FileUtils.mkdir_p("lib/#{name}")
+      File.write("lib/#{name}.rb", "require \"#{name}/lib\"\n")
+      File.write("lib/#{name}/lib.rb", "module #{module_name}\nend\n")
+      File.write(".gitignore", "/vendor\n")
+      # Gemfile
+      # main.rb
+    end
   end
 
   desc "run [ARGS]", "Run application with arguments"
